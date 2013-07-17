@@ -4,14 +4,14 @@ Potato
 Potato is a framework and a base to do a video game in C++ with SFML.
 
 It needs :
-===
+==
 
 *   A good understanding of C++
 *   A compiler that support C++11 (lambda, nullptr, shared ptr, threads)
 *   SFML 2.0
 
 It includes :
-===
+==
 
 *   Window handling
 *   Input and events (even game event) handling
@@ -20,7 +20,7 @@ It includes :
 *   Resources Handling
 
 It will include :
-===
+==
 
 *   Very Simple GUI (buttons and text zones)
 *   Simple Particle system
@@ -30,7 +30,7 @@ It will include :
 *   Music and Sound handling
 
 Usage
-===
+==
 
 You can open a simple window with the code "as-is". Simply create a main.cpp and do :
 
@@ -46,7 +46,7 @@ You can open a simple window with the code "as-is". Simply create a main.cpp and
         return 0;
     }
 
-Once you've done that, I let you discoer the framework in details.
+Once you've done that, I let you discover the framework in details.
 
 To add screens, inherit from the `State` class, add your `State::ID` into the `states/stateidentifiers.h` file. Then, register your state in `Application::registerStates()` method.
 
