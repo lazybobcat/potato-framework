@@ -8,7 +8,7 @@ TitleState::TitleState(StateStack &stack, Context context) :
     mTextEffectTime(sf::Time::Zero)
 {
     mText.setFont(context.fonts->get(Fonts::Main));
-    mText.setString("Press any key to start !");
+    mText.setString("Welcome on Potato Framework ! Press any key to quit !");
     centerOrigin(mText);
     mText.setPosition(context.window->getView().getSize() / 2.f);
 }
