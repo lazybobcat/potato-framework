@@ -1,0 +1,71 @@
+#include "world.h"
+
+World::World(sf::RenderWindow &window, TextureHolder &textures, FontHolder &fonts) :
+    mWindow(window),
+    mWorldView(window.getDefaultView()),
+    mTextures(textures),
+    mFonts(fonts),
+    mSceneGraph(),
+    mSceneLayers()
+{
+    //mSceneTexture.create(mWindow.getSize().x, mWindow.getSize().y);
+
+    loadTextures();
+    buildScene();
+
+    // Other things here, like setting the view center on the player, scores, etc...
+}
+
+
+void World::loadTextures()
+{
+    //mTextures.load(Textures::MyTextureIDHere, "assets/textures/whatever.png");
+}
+
+void World::buildScene()
+{
+    // Initialize layers
+    for(std::size_t i = 0; i < LayerCount; ++i)
+    {
+        SceneNode::Ptr layer(new SceneNode());
+        mSceneLayers[i] = layer.get();
+
+        mSceneGraph.attachChild(std::move(layer));
+    }
+
+    // Tiled background
+    // Add particle node to the scene
+    // Player
+    // Ennemies
+    // ...
+}
+
+void World::update(sf::Time dt)
+{
+    // Game logic here
+
+    // Forward commands to scene
+    while(!mCommandQueue.isEmpty())
+    {
+        mSceneGraph.onCommand(mCommandQueue.pop(), dt);
+    }
+
+    mSceneGraph.update(dt);
+}
+
+void World::draw()
+{
+    /*mSceneTexture.clear();
+    mSceneTexture.setView(mWorldView);
+    mSceneTexture.draw(mSceneGraph);
+    mSceneTexture.display();
+    mBloomEffect.apply(mSceneTexture, mWindow);*/
+
+    mWindow.setView(mWorldView);
+    mWindow.draw(mSceneGraph);
+}
+
+CommandQueue& World::getCommandQueue()
+{
+    return mCommandQueue;
+}
