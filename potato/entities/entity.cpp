@@ -1,5 +1,6 @@
 #include "entity.h"
-#include "../entities/scenenode.h"
+#include "scenenode.h"
+#include "../events/commandqueue.h"
 
 Entity::Entity(int healthpoints) :
     mHealthpoints(healthpoints)
@@ -34,4 +35,13 @@ int Entity::getHealthpoints() const
 bool Entity::isDestroyed() const
 {
     return (mHealthpoints <= 0);
+}
+
+void Entity::playLocalSound(CommandQueue &commands, Sounds::ID sound)
+{
+    Command command;
+    command.category = Category::SoundEffect;
+    command.action = derivedAction<SoundNode>(std::bind(&SoundNode::playSound, std::placeholders::_1, sound, getWorldPosition()));
+
+    commands.push(command);
 }

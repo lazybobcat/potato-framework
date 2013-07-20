@@ -50,6 +50,8 @@ void World::update(sf::Time dt)
         mSceneGraph.onCommand(mCommandQueue.pop(), dt);
     }
 
+    // Set the listener position
+
     mSceneGraph.update(dt);
 }
 

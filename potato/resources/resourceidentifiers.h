@@ -7,6 +7,8 @@ namespace sf
     class Texture;
     class Font;
     class Shader;
+    class Music;
+    class SoundBuffer;
 }
 
 template <typename Resource, typename Identifier>
@@ -48,6 +50,27 @@ namespace Shaders
     };
 }
 typedef ResourceHolder<sf::Shader, Shaders::ID> ShaderHolder;
+
+
+// Musics
+namespace Musics
+{
+    enum ID
+    {
+
+    };
+}
+
+
+// Sounds
+namespace Sounds
+{
+    enum ID
+    {
+
+    };
+}
+typedef ResourceHolder<sf::SoundBuffer, Sounds::ID> SoundHolder;
 
 
 

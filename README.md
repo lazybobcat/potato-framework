@@ -3,6 +3,10 @@ Potato
 
 Potato is a framework and a base to do a video game in C++ with SFML.
 
+It's based on the book [SFML Game Development](http://www.packtpub.com/sfml-game-development/book) edited by Packt. I can only advise you to get your copy of the book, it's awesome ! You can checkout the book [GitHub repository](https://github.com/LaurentGomila/SFML-Game-Development-Book) as well.
+
+Even if I change proposed code to fit my needs, I publish it with the same restrictions, meaning : You are free to use and modify the code as you wish, except for commercial use.
+
 It needs :
 ==
 
@@ -18,16 +22,16 @@ It includes :
 *   States and State Stack
 *   Entities and Scene Tree
 *   Resources Handling
+*   Very Simple GUI (buttons and text zones)
+*   Music and Sound handling
 
 It will include :
 ==
 
-*   Very Simple GUI (buttons and text zones)
 *   Simple Particle system
 *   LUA scripting language
 *   Possibly Box2D interface
 *   Visual Effect (interface for shaders)
-*   Music and Sound handling
 
 Usage
 ==

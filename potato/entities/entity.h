@@ -4,6 +4,9 @@
 #include <SFML/System/Time.hpp>
 
 #include "scenenode.h"
+#include "soundnode.h"
+
+class CommandQueue;
 
 class Entity : public SceneNode
 {
@@ -15,6 +18,8 @@ public:
     void        destroy();
     int         getHealthpoints() const;
     bool        isDestroyed() const;
+
+    void        playLocalSound(CommandQueue& commands, Sounds::ID sound);
 
 protected:
     virtual void    updateCurrent(sf::Time);
