@@ -24,12 +24,12 @@ It includes :
 *   Resources Handling
 *   Very Simple GUI (buttons and text zones)
 *   Music and Sound handling
+*   LUA scripting language
 
 It will include :
 ==
 
 *   Simple Particle system
-*   LUA scripting language
 *   Possibly Box2D interface
 *   Visual Effect (interface for shaders)
 
