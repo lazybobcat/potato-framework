@@ -73,5 +73,15 @@ namespace Sounds
 typedef ResourceHolder<sf::SoundBuffer, Sounds::ID> SoundHolder;
 
 
+// Scripts
+namespace Scripts
+{
+    enum ID
+    {
+        HelloWorld
+    };
+}
+
+
 
 #endif // RESOURCE_IDENTIFIERS_H
