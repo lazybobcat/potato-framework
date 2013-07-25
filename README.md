@@ -25,6 +25,7 @@ It includes :
 *   Very Simple GUI (buttons and text zones)
 *   Music and Sound handling
 *   LUA scripting language
+*   (Very) Simple animations (spritesheets)
 
 It will include :
 ==
