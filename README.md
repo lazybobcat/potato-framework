@@ -26,11 +26,11 @@ It includes :
 *   Music and Sound handling
 *   LUA scripting language
 *   (Very) Simple animations (spritesheets)
+*   Simple Particle system
 
 It will include :
 ==
 
-*   Simple Particle system
 *   Possibly Box2D interface
 *   Visual Effect (interface for shaders)
 
