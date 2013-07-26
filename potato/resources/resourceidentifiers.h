@@ -21,7 +21,7 @@ namespace Textures
 {
     enum ID
     {
-
+        Particle
     };
 }
 

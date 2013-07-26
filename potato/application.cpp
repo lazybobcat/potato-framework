@@ -20,6 +20,8 @@ Application::Application(unsigned int width, unsigned int height, const std::str
     mFonts.load(Fonts::Main, "assets/fonts/sansation.ttf");
     mFonts.load(Fonts::Monstruosor, "assets/fonts/monstruosor.ttf");
 
+    mTextures.load(Textures::Particle, "assets/textures/particle.png");
+
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
     mStatisticsText.setPosition(5.f,5.f);
     mStatisticsText.setCharacterSize(10);
