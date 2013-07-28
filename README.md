@@ -13,6 +13,7 @@ It needs :
 *   A good understanding of C++
 *   A compiler that support C++11 (lambda, nullptr, shared ptr, threads)
 *   SFML 2.0
+*   Lua 5.2 lib
 
 It includes :
 ==
