@@ -1,8 +1,6 @@
 #ifndef QUADTREE_H
 #define QUADTREE_H
 
-#define DEBUG
-
 #include <deque>
 #include <array>
 
