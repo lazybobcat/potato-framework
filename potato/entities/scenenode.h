@@ -23,8 +23,11 @@ public:
 
     void                    update(sf::Time dt);
 
+    virtual bool            isCollidable() const;
+
     sf::Transform           getWorldTransform() const;
     sf::Vector2f            getWorldPosition() const;
+    virtual sf::FloatRect   getBoundingRect() const;
 
     virtual unsigned int    getCategory() const;
     void                    onCommand(const Command& command, sf::Time dt);

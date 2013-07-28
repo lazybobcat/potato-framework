@@ -64,6 +64,11 @@ sf::Vector2f SceneNode::getWorldPosition() const
     return getWorldTransform() * sf::Vector2f();
 }
 
+sf::FloatRect SceneNode::getBoundingRect() const
+{
+    return sf::FloatRect();
+}
+
 void SceneNode::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
@@ -87,6 +92,11 @@ void SceneNode::drawChildren(sf::RenderTarget &target, sf::RenderStates states) 
 unsigned int SceneNode::getCategory() const
 {
     return mDefaultCategory;
+}
+
+bool SceneNode::isCollidable() const
+{
+    return false;
 }
 
 void SceneNode::onCommand(const Command &command, sf::Time dt)

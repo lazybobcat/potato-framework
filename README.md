@@ -27,11 +27,11 @@ It includes :
 *   LUA scripting language
 *   (Very) Simple animations (spritesheets)
 *   Simple Particle system
+*   Simple QuadTree (non-object-number-adaptative)
 
 It will include :
 ==
 
-*   Possibly Box2D interface
 *   Visual Effect (interface for shaders)
 
 Usage
