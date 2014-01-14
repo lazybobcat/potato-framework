@@ -2,7 +2,7 @@
 #include "resources/particle.h"
 
 
-std::vector<ParticleData> initializeParticleData()
+/*std::vector<ParticleData> initializeParticleData()
 {
     std::vector<ParticleData> data(Particle::ParticleCount);
 
@@ -11,3 +11,4 @@ std::vector<ParticleData> initializeParticleData()
 
     return data;
 }
+*/
