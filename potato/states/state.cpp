@@ -2,10 +2,13 @@
 #include "statestack.h"
 #include "../controllers/playercontroller.h"
 
-State::Context::Context(sf::RenderWindow &window, TextureHolder &textures, FontHolder &fonts, PlayerController &player) :
+State::Context::Context(sf::RenderWindow &window, TextureHolder &textures, FontHolder &fonts, SoundPlayer& sounds, MusicPlayer& music, ScriptPlayer& scripts, PlayerController &player) :
     window(&window),
     textures(&textures),
     fonts(&fonts),
+    sounds(&sounds),
+    music(&music),
+    scripts(&scripts),
     player(&player)
 {
 }
@@ -33,6 +36,16 @@ void State::requestStackPop()
 void State::requestStackClear()
 {
     mStack->clearStates();
+}
+
+void State::onPause()
+{
+
+}
+
+void State::onResume()
+{
+
 }
 
 State::Context State::getContext() const

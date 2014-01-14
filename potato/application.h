@@ -29,6 +29,9 @@ private:
     // Textures, Fonts, Sounds, ...
     TextureHolder           mTextures;
     FontHolder              mFonts;
+    SoundPlayer             mSounds;
+    MusicPlayer             mMusic;
+    ScriptPlayer            mScripts;
     PlayerController        mPlayer;
 
     StateStack              mStateStack;

@@ -9,6 +9,9 @@
 #include "stateidentifiers.h"
 #include "../resources/resourceidentifiers.h"
 #include "../resources/resourceholder.h"
+#include "../resources/musicplayer.h"
+#include "../resources/soundplayer.h"
+#include "../resources/scriptplayer.h"
 
 class StateStack;
 class PlayerController;
@@ -20,11 +23,14 @@ public:
 
     struct Context
     {
-        Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, PlayerController& player);
+        Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, SoundPlayer& sounds, MusicPlayer& music, ScriptPlayer& scripts, PlayerController& player);
 
         sf::RenderWindow*   window;
         TextureHolder*      textures;
         FontHolder*         fonts;
+        SoundPlayer*        sounds;
+        MusicPlayer*        music;
+        ScriptPlayer*       scripts;
         PlayerController*   player;
     };
 
@@ -35,6 +41,9 @@ public:
     virtual void    draw() = 0;
     virtual bool    update(sf::Time dt) = 0;
     virtual bool    handleEvent(const sf::Event& event) = 0;
+
+    virtual void    onPause();
+    virtual void    onResume();
 
 protected:
     void            requestStackPush(States::ID id);

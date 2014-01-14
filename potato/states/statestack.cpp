@@ -75,16 +75,24 @@ void StateStack::applyPendingChanges()
         switch(change.action)
         {
             case Push:
+                if(!mStack.empty())
+                {
+                    mStack.back()->onPause();
+                }
                 mStack.push_back(createState(change.stateID));
                 break;
 
             case Pop:
                 mStack.pop_back();
+                if(!mStack.empty())
+                {
+                    mStack.back()->onResume();
+                }
                 break;
 
             case Clear:
                 mStack.clear();
-                break;
+            break;
         }
     }
 

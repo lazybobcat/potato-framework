@@ -33,8 +33,7 @@ namespace Fonts
 {
     enum ID
     {
-        Main,
-        Monstruosor
+        Main
     };
 }
 

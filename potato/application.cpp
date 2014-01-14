@@ -8,8 +8,11 @@ Application::Application(unsigned int width, unsigned int height, const std::str
     mWindow(sf::VideoMode(width,height), title.c_str(), sf::Style::Close),
     mTextures(),
     mFonts(),
+    mSounds(),
+    mMusic(),
+    mScripts(),
     mPlayer(),
-    mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer)),
+    mStateStack(State::Context(mWindow, mTextures, mFonts, mSounds, mMusic, mScripts, mPlayer)),
     mStatisticsText(),
     mStatisticsUpdateTime(),
     mStatisticsNumFrames(0)
@@ -18,9 +21,8 @@ Application::Application(unsigned int width, unsigned int height, const std::str
 
     // Resources
     mFonts.load(Fonts::Main, "assets/fonts/sansation.ttf");
-    mFonts.load(Fonts::Monstruosor, "assets/fonts/monstruosor.ttf");
-
     mTextures.load(Textures::Particle, "assets/textures/particle.png");
+    mScripts.registerFile(Scripts::HelloWorld, "assets/scripts/helloworld.lua");
 
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
     mStatisticsText.setPosition(5.f,5.f);
