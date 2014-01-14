@@ -4,6 +4,7 @@
 QuadTree::QuadTree(int level, const sf::FloatRect &bounds) :
     mBounds(bounds),
     mLevel(level),
+    mMaxLevel(4),
     mChildren{ {nullptr, nullptr, nullptr, nullptr} }
 {
     if(!isFinal())

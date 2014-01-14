@@ -4,7 +4,7 @@
 #include <deque>
 #include <array>
 
-#include "entities/scenenode.h"
+#include "scenenode.h"
 
 class QuadTree
 {
@@ -32,7 +32,7 @@ private:
 private:
     sf::FloatRect           mBounds;
     int                     mLevel;
-    int                     mMaxLevel = 4;
+    int                     mMaxLevel;
     std::deque<SceneNode*>  mObjects;
 
     std::array<QuadTree*,4> mChildren;
