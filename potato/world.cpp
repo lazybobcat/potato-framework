@@ -8,8 +8,6 @@ World::World(sf::RenderWindow &window, TextureHolder &textures, FontHolder &font
     mSceneGraph(),
     mSceneLayers()
 {
-    //mSceneTexture.create(mWindow.getSize().x, mWindow.getSize().y);
-
     loadTextures();
     buildScene();
 
@@ -57,12 +55,6 @@ void World::update(sf::Time dt)
 
 void World::draw()
 {
-    /*mSceneTexture.clear();
-    mSceneTexture.setView(mWorldView);
-    mSceneTexture.draw(mSceneGraph);
-    mSceneTexture.display();
-    mBloomEffect.apply(mSceneTexture, mWindow);*/
-
     mWindow.setView(mWorldView);
     mWindow.draw(mSceneGraph);
 }

@@ -36,7 +36,6 @@ private:
 
 private:
     sf::RenderWindow&                   mWindow;
-    //sf::RenderTexture                   mSceneTexture; // Use RenderTexture instead of window to drawto apply some shaders or pre-redering...
     sf::View                            mWorldView;
     TextureHolder&                      mTextures;
     FontHolder&                         mFonts;
