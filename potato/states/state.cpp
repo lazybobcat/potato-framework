@@ -38,14 +38,20 @@ void State::requestStackClear()
     mStack->clearStates();
 }
 
+void State::onCreate()
+{
+}
+
+void State::onDestroy()
+{
+}
+
 void State::onPause()
 {
-
 }
 
 void State::onResume()
 {
-
 }
 
 State::Context State::getContext() const

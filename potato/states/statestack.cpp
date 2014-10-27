@@ -80,9 +80,11 @@ void StateStack::applyPendingChanges()
                     mStack.back()->onPause();
                 }
                 mStack.push_back(createState(change.stateID));
+                mStack.back()->onCreate();
                 break;
 
             case Pop:
+                mStack.back()->onDestroy();
                 mStack.pop_back();
                 if(!mStack.empty())
                 {
@@ -91,6 +93,8 @@ void StateStack::applyPendingChanges()
                 break;
 
             case Clear:
+                for(State::Ptr& state : mStack)
+                    state->onDestroy();
                 mStack.clear();
             break;
         }
