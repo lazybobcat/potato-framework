@@ -1,4 +1,4 @@
-#include "label.h"
+#include <GUI/label.h>
 
 using namespace GUI;
 

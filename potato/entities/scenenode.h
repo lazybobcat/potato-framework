@@ -8,7 +8,7 @@
 #include <memory>
 #include <cassert>
 
-#include "../events/command.h"
+#include <events/command.h>
 
 class SceneNode : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
 {

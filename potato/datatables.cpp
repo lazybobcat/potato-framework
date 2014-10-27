@@ -1,8 +1,8 @@
-#include "datatables.h"
-#include "resources/particle.h"
+#include <datatables.h>
+#include <resources/particle.h>
 
 
-/*std::vector<ParticleData> initializeParticleData()
+std::vector<ParticleData> initializeParticleData()
 {
     std::vector<ParticleData> data(Particle::ParticleCount);
 
@@ -11,4 +11,4 @@
 
     return data;
 }
-*/
+

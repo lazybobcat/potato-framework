@@ -3,12 +3,12 @@
 
 #include <SFML/System.hpp>
 
-#include <lua.hpp>
 #include <map>
 #include <string>
 
-#include "../lua/SLB.hpp"
-#include "resourceidentifiers.h"
+#include <lua.hpp>
+#include <lua/SLB.hpp>
+#include <resources/resourceidentifiers.h>
 
 class ScriptPlayer : private sf::NonCopyable
 {

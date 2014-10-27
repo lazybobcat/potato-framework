@@ -1,5 +1,5 @@
-#include "textnode.h"
-#include "../utils.h"
+#include <entities/textnode.h>
+#include <utils.h>
 
 TextNode::TextNode(const std::string& text, const FontHolder& fonts) :
     mText(text, fonts.get(Fonts::Main), 20)

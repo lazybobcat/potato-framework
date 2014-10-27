@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "widget.h"
-#include "../resources/resourceidentifiers.h"
-#include "../resources/resourceholder.h"
+#include <GUI/widget.h>
+#include <resources/resourceidentifiers.h>
+#include <resources/resourceholder.h>
 
 
 namespace GUI

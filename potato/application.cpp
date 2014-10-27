@@ -1,6 +1,6 @@
-#include "application.h"
-#include "utils.h"
-#include "states/titlestate.h"
+#include <application.h>
+#include <utils.h>
+#include <states/titlestate.h>
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
 

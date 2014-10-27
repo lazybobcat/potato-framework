@@ -8,9 +8,8 @@
 #include <vector>
 #include <functional>
 
-#include "resources/resourceidentifiers.h"
+#include <resources/resourceidentifiers.h>
 
-/*
 // Example : this structure contains each information about a particle type
 struct ParticleData
 {
@@ -20,8 +19,6 @@ struct ParticleData
 
 // This function inits each particle types with its basic data
 std::vector<ParticleData>	initializeParticleData();
-
-*/
 
 
 #endif // DATATABLES_H

@@ -1,4 +1,4 @@
-#include "quadtree.h"
+#include <entities/quadtree.h>
 #include <cassert>
 
 QuadTree::QuadTree(int level, const sf::FloatRect &bounds) :

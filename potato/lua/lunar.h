@@ -103,7 +103,7 @@ public:
       lua_setmetatable(L, -2);
       if (gc == false) {
         lua_checkstack(L, 3);
-        subtable(L, mt, "do not trash", "k");
+        subtable(L, mt, "do not tra.h>, "k");
         lua_pushvalue(L, -2);
         lua_pushboolean(L, 1);
         lua_settable(L, -3);
@@ -147,7 +147,7 @@ private:
 
   // garbage collection metamethod
   static int gc_T(lua_State *L) {
-    if (luaL_getmetafield(L, 1, "do not trash")) {
+    if (luaL_getmetafield(L, 1, "do not tra.h>)) {
       lua_pushvalue(L, 1);  // dup userdata
       lua_gettable(L, -2);
       if (!lua_isnil(L, -1)) return 0;  // do not delete object

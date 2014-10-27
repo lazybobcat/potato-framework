@@ -1,5 +1,5 @@
-#include "playercontroller.h"
-#include "../events/commandqueue.h"
+#include <controllers/playercontroller.h>
+#include <events/commandqueue.h>
 
 PlayerController::PlayerController()
 {

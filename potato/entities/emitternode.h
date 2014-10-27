@@ -1,9 +1,9 @@
 #ifndef EMITTERNODE_H
 #define EMITTERNODE_H
 
-#include "scenenode.h"
-#include "../resources/particle.h"
-#include "../events/commandqueue.h"
+#include <entities/scenenode.h>
+#include <resources/particle.h>
+#include <events/commandqueue.h>
 
 class ParticleNode;
 

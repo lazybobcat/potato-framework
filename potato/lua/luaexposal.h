@@ -1,7 +1,7 @@
 #ifndef LUAEXPOSAL_H
 #define LUAEXPOSAL_H
 
-#include "../resources/scriptplayer.h"
+#include <resources/scriptplayer.h>
 
 void exposeToLua();
 

@@ -3,11 +3,11 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include "resources/resourceidentifiers.h"
-#include "resources/resourceholder.h"
-#include "controllers/playercontroller.h"
-#include "states/statestack.h"
-#include "lua/luaexposal.h"
+#include <resources/resourceidentifiers.h>
+#include <resources/resourceholder.h>
+#include <controllers/playercontroller.h>
+#include <states/statestack.h>
+#include <lua/luaexposal.h>
 
 class Application
 {

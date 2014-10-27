@@ -1,4 +1,4 @@
-#include "scenenode.h"
+#include <entities/scenenode.h>
 
 SceneNode::SceneNode(Category::Type category) :
     mChildren(),

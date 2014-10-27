@@ -6,7 +6,7 @@
 
 #include <map>
 
-#include "../events/command.h"
+#include <events/command.h>
 
 class CommandQueue;
 

@@ -1,4 +1,4 @@
-#include "soundnode.h"
+#include <entities/soundnode.h>
 
 SoundNode::SoundNode(SoundPlayer &player) :
     SceneNode(Category::SoundEffect),

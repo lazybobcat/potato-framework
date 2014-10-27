@@ -1,7 +1,7 @@
 #ifndef SPRITENODE_H
 #define SPRITENODE_H
 
-#include "scenenode.h"
+#include <entities/scenenode.h>
 
 class SpriteNode : public SceneNode
 {

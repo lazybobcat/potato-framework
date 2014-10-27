@@ -6,8 +6,8 @@
 
 #include <list>
 
-#include "resourceholder.h"
-#include "resourceidentifiers.h"
+#include <resources/resourceholder.h>
+#include <resources/resourceidentifiers.h>
 
 class SoundPlayer : private sf::NonCopyable
 {

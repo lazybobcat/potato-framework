@@ -7,8 +7,8 @@
 #include <map>
 #include <string>
 
-#include "resourceholder.h"
-#include "resourceidentifiers.h"
+#include <resources/resourceholder.h>
+#include <resources/resourceidentifiers.h>
 
 class MusicPlayer : private sf::NonCopyable
 {

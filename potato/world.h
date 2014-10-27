@@ -6,11 +6,11 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "resources/resourceholder.h"
-#include "resources/resourceidentifiers.h"
-#include "events/category.h"
-#include "events/commandqueue.h"
-#include "entities/spritenode.h"
+#include <resources/resourceholder.h>
+#include <resources/resourceidentifiers.h>
+#include <events/category.h>
+#include <events/commandqueue.h>
+#include <entities/spritenode.h>
 
 class World : public sf::NonCopyable
 {

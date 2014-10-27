@@ -4,9 +4,9 @@
 #include <string>
 #include <cstring>
 
-#include "widget.h"
-#include "../resources/resourceholder.h"
-#include "../resources/resourceidentifiers.h"
+#include <GUI/widget.h>
+#include <resources/resourceholder.h>
+#include <resources/resourceidentifiers.h>
 
 namespace GUI
 {

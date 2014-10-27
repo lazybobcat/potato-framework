@@ -1,4 +1,4 @@
-#include "widget.h"
+#include <GUI/widget.h>
 
 using namespace GUI;
 

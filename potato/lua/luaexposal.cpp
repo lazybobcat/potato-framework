@@ -1,6 +1,6 @@
-#include "luaexposal.h"
+#include <lua/luaexposal.h>
 #include <SFML/System/Vector2.hpp>
-#include "../entities/entity.h"
+#include <entities/entity.h>
 
 
 void exposeVector()

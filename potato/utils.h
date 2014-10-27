@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <sstream>
-#include "resources/animation.h"
+#include <resources/animation.h>
 
 // Since std::to_string doesn't work on MinGW we have to implement
 // our own to support all platforms.
@@ -15,6 +15,6 @@ void centerOrigin(sf::Sprite& sprite);
 void centerOrigin(sf::Text& text);
 void centerOrigin(Animation& animation);
 
-#include "utils.inl"
+#include <utils.inl>
 
 #endif // UTILS_H

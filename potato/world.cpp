@@ -1,4 +1,4 @@
-#include "world.h"
+#include <world.h>
 
 World::World(sf::RenderWindow &window, TextureHolder &textures, FontHolder &fonts) :
     mWindow(window),

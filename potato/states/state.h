@@ -6,12 +6,12 @@
 
 #include <memory>
 
-#include "stateidentifiers.h"
-#include "../resources/resourceidentifiers.h"
-#include "../resources/resourceholder.h"
-#include "../resources/musicplayer.h"
-#include "../resources/soundplayer.h"
-#include "../resources/scriptplayer.h"
+#include <states/stateidentifiers.h>
+#include <resources/resourceidentifiers.h>
+#include <resources/resourceholder.h>
+#include <resources/musicplayer.h>
+#include <resources/soundplayer.h>
+#include <resources/scriptplayer.h>
 
 class StateStack;
 class PlayerController;

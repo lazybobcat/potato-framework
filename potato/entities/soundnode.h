@@ -1,8 +1,8 @@
 #ifndef SOUNDNODE_H
 #define SOUNDNODE_H
 
-#include "scenenode.h"
-#include "../resources/soundplayer.h"
+#include <entities/scenenode.h>
+#include <resources/soundplayer.h>
 
 class SoundNode : public SceneNode
 {

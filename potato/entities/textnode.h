@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "scenenode.h"
-#include "../resources/resourceidentifiers.h"
-#include "../resources/resourceholder.h"
+#include <entities/scenenode.h>
+#include <resources/resourceidentifiers.h>
+#include <resources/resourceholder.h>
 
 class TextNode : public SceneNode
 {
