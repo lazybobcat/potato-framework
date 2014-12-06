@@ -1,10 +1,14 @@
 #include <world.h>
 
-World::World(sf::RenderWindow &window, TextureHolder &textures, FontHolder &fonts) :
+World::World(sf::RenderWindow& window, TextureHolder &textures, FontHolder &fonts, MusicPlayer &music, SoundPlayer &sounds, ScriptPlayer &scripts, PlayerController &player) :
     mWindow(window),
     mWorldView(window.getDefaultView()),
     mTextures(textures),
     mFonts(fonts),
+    mMusic(music),
+    mSounds(sounds),
+    mScripts(scripts),
+    mPlayer(player),
     mSceneGraph(),
     mSceneLayers()
 {
