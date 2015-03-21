@@ -11,9 +11,6 @@ ScriptPlayer::ScriptPlayer() :
     // Creation of lua state
     mLuaState = luaL_newstate();
     luaL_openlibs(mLuaState);
-
-    // C++ binding
-    SLB::Manager::defaultManager()->registerSLB(mLuaState);
 }
 
 ScriptPlayer::~ScriptPlayer()

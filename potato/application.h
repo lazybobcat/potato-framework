@@ -7,7 +7,6 @@
 #include <resources/resourceholder.h>
 #include <controllers/playercontroller.h>
 #include <states/statestack.h>
-#include <lua/luaexposal.h>
 
 class Application
 {

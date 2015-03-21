@@ -29,7 +29,6 @@ Application::Application(unsigned int width, unsigned int height, const std::str
     mStatisticsText.setCharacterSize(10);
 
     registerStates();
-    exposeToLua();
     mStateStack.pushState(States::Title);
 }
 
