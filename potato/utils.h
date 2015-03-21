@@ -15,6 +15,10 @@ void centerOrigin(sf::Sprite& sprite);
 void centerOrigin(sf::Text& text);
 void centerOrigin(Animation& animation);
 
+// Random number generation
+int     randomInt(int min, int max);
+float   randomFloat(float min, float max);
+
 #include <utils.inl>
 
 #endif // UTILS_H
