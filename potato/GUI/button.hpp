@@ -19,7 +19,7 @@ public:
     typedef std::function<void()>   Callback;
 
 public:
-    Button(const FontHolder& fonts, const TextureHolder& textures);
+    Button(const FontHolder& fonts, const TextureHolder&);
 
     void            setCallback(Callback callback);
     void            setText(const std::string& text);

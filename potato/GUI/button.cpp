@@ -4,7 +4,7 @@
 
 using namespace GUI;
 
-Button::Button(const FontHolder &fonts, const TextureHolder &textures) :
+Button::Button(const FontHolder &fonts, const TextureHolder &/*textures*/) :
     mCallback(),
     //mButtonTexture(),
     mSprite(),
