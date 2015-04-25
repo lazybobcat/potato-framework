@@ -8,7 +8,7 @@
 #include <vector>
 #include <functional>
 
-#include <resources/resourceidentifiers.h>
+#include <resources/resourceidentifiers.hpp>
 
 // Example : this structure contains each information about a particle type
 struct ParticleData

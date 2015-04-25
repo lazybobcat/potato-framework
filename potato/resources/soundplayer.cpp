@@ -1,4 +1,4 @@
-#include <resources/soundplayer.h>
+#include <resources/soundplayer.hpp>
 
 #include <cmath>
 

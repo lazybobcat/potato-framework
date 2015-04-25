@@ -1,4 +1,4 @@
-#include <resources/scriptplayer.h>
+#include <resources/scriptplayer.hpp>
 #include <iostream>
 #include <fstream>
 #include <ios>

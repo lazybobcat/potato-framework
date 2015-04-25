@@ -1,5 +1,5 @@
-#include <GUI/button.h>
-#include <utils.h>
+#include <GUI/button.hpp>
+#include <utils.hpp>
 #include <SFML/Graphics.hpp>
 
 using namespace GUI;

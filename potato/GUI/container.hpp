@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include <GUI/widget.h>
+#include <GUI/widget.hpp>
 
 namespace GUI
 {

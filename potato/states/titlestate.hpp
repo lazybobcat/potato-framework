@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include <states/state.h>
+#include <states/state.hpp>
 
 class TitleState : public State
 {

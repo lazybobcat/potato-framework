@@ -1,4 +1,4 @@
-#include <resources/musicplayer.h>
+#include <resources/musicplayer.hpp>
 
 MusicPlayer::MusicPlayer() :
     mMusic(),

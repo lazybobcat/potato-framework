@@ -1,4 +1,4 @@
-#include <states/paralleltask.h>
+#include <states/paralleltask.hpp>
 
 ParallelTask::ParallelTask() :
     mThread(&ParallelTask::runTask, this),

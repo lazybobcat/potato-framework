@@ -1,4 +1,4 @@
-#include <states/statestack.h>
+#include <states/statestack.hpp>
 #include <cassert>
 
 StateStack::StateStack(State::Context context) :

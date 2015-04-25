@@ -6,15 +6,15 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
-#include <resources/resourceholder.h>
-#include <resources/resourceidentifiers.h>
-#include <resources/musicplayer.h>
-#include <resources/soundplayer.h>
-#include <resources/scriptplayer.h>
-#include <controllers/playercontroller.h>
-#include <events/category.h>
-#include <events/commandqueue.h>
-#include <entities/spritenode.h>
+#include <resources/resourceholder.hpp>
+#include <resources/resourceidentifiers.hpp>
+#include <resources/musicplayer.hpp>
+#include <resources/soundplayer.hpp>
+#include <resources/scriptplayer.hpp>
+#include <controllers/playercontroller.hpp>
+#include <events/category.hpp>
+#include <events/commandqueue.hpp>
+#include <entities/spritenode.hpp>
 
 class World : public sf::NonCopyable
 {

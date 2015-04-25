@@ -1,4 +1,4 @@
-#include <GUI/label.h>
+#include <GUI/label.hpp>
 
 using namespace GUI;
 

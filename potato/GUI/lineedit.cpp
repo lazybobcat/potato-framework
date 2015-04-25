@@ -1,4 +1,4 @@
-#include <GUI/lineedit.h>
+#include <GUI/lineedit.hpp>
 
 #include <iostream>
 

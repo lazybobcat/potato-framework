@@ -4,7 +4,7 @@
 #include <deque>
 #include <array>
 
-#include <entities/scenenode.h>
+#include <entities/scenenode.hpp>
 
 class QuadTree
 {

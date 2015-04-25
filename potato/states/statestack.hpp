@@ -9,7 +9,7 @@
 #include <functional>
 #include <map>
 
-#include <states/state.h>
+#include <states/state.hpp>
 
 class StateStack : private sf::NonCopyable
 {

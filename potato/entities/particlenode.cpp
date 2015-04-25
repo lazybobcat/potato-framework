@@ -1,5 +1,5 @@
-#include <entities/particlenode.h>
-#include <datatables.h>
+#include <entities/particlenode.hpp>
+#include <datatables.hpp>
 
 #include <iostream>
 

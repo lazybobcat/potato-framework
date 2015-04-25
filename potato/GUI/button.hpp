@@ -5,9 +5,9 @@
 #include <string>
 #include <functional>
 
-#include <GUI/widget.h>
-#include <resources/resourceholder.h>
-#include <resources/resourceidentifiers.h>
+#include <GUI/widget.hpp>
+#include <resources/resourceholder.hpp>
+#include <resources/resourceidentifiers.hpp>
 
 namespace GUI
 {

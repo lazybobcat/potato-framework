@@ -3,10 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include <resources/resourceidentifiers.h>
-#include <resources/resourceholder.h>
-#include <controllers/playercontroller.h>
-#include <states/statestack.h>
+#include <resources/resourceidentifiers.hpp>
+#include <resources/resourceholder.hpp>
+#include <controllers/playercontroller.hpp>
+#include <states/statestack.hpp>
 
 class Application
 {

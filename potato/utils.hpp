@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <sstream>
-#include <resources/animation.h>
+#include <resources/animation.hpp>
 
 // Since std::to_string doesn't work on MinGW we have to implement
 // our own to support all platforms.

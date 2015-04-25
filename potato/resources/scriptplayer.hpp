@@ -7,7 +7,7 @@
 #include <string>
 
 #include <lua.hpp>
-#include <resources/resourceidentifiers.h>
+#include <resources/resourceidentifiers.hpp>
 
 class ScriptPlayer : private sf::NonCopyable
 {

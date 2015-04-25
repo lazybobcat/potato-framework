@@ -1,4 +1,4 @@
-#include <world.h>
+#include <world.hpp>
 
 World::World(sf::RenderWindow& window, TextureHolder &textures, FontHolder &fonts, MusicPlayer &music, SoundPlayer &sounds, ScriptPlayer &scripts, PlayerController &player) :
     mWindow(window),

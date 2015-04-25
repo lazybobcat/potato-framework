@@ -1,2 +1,2 @@
-#include <resources/particle.h>
+#include <resources/particle.hpp>
 

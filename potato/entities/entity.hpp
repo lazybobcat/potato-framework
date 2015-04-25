@@ -3,8 +3,8 @@
 
 #include <SFML/System/Time.hpp>
 
-#include <entities/scenenode.h>
-#include <entities/soundnode.h>
+#include <entities/scenenode.hpp>
+#include <entities/soundnode.hpp>
 
 class CommandQueue;
 

@@ -6,12 +6,12 @@
 #include <deque>
 #include <vector>
 
-#include <entities/scenenode.h>
-#include <resources/resourceholder.h>
-#include <resources/resourceidentifiers.h>
-#include <resources/particle.h>
-#include <resources/affectors.h>
-#include <events/commandqueue.h>
+#include <entities/scenenode.hpp>
+#include <resources/resourceholder.hpp>
+#include <resources/resourceidentifiers.hpp>
+#include <resources/particle.hpp>
+#include <resources/affectors.hpp>
+#include <events/commandqueue.hpp>
 
 class ParticleNode : public SceneNode
 {

@@ -1,6 +1,6 @@
-#include <entities/entity.h>
-#include <entities/scenenode.h>
-#include <events/commandqueue.h>
+#include <entities/entity.hpp>
+#include <entities/scenenode.hpp>
+#include <events/commandqueue.hpp>
 
 Entity::Entity(int healthpoints) :
     mHealthpoints(healthpoints)
