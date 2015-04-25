@@ -23,7 +23,7 @@ public:
     void        playLocalSound(CommandQueue& commands, Sounds::ID sound);
 
 protected:
-    virtual void    updateCurrent(sf::Time, CommandQueue);
+    virtual void    updateCurrent(sf::Time, CommandQueue&);
 
 private:
     int         mHealthpoints;
