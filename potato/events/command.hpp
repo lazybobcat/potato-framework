@@ -6,7 +6,7 @@
 #include <functional>
 #include <cassert>
 
-#include <events/category.h>
+#include <events/category.hpp>
 
 class SceneNode;
 
