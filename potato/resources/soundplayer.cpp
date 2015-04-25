@@ -17,7 +17,7 @@ SoundPlayer::SoundPlayer() :
     mSounds()
 {
     // Fill buffers with sounds
-    //mSoundBufers.load(Sounds::MySound, "my_sound_file.ogg");
+    //mSoundBuffers.load(Sounds::MySound, "my_sound_file.ogg");
 }
 
 void SoundPlayer::play(Sounds::ID sound)
