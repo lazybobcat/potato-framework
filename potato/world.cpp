@@ -54,7 +54,7 @@ void World::update(sf::Time dt)
 
     // Set the listener position
 
-    mSceneGraph.update(dt);
+    mSceneGraph.update(dt, mCommandQueue);
 }
 
 void World::draw()

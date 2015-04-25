@@ -7,7 +7,7 @@ Entity::Entity(int healthpoints) :
 {
 }
 
-void Entity::updateCurrent(sf::Time)
+void Entity::updateCurrent(sf::Time, CommandQueue)
 {
 
 }

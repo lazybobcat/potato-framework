@@ -28,22 +28,22 @@ SceneNode::Ptr SceneNode::detachChild(const SceneNode &node)
     return result;
 }
 
-void SceneNode::update(sf::Time dt)
+void SceneNode::update(sf::Time dt, CommandQueue& commands)
 {
-    updateCurrent(dt);
-    updateChildren(dt);
+    updateCurrent(dt, commands);
+    updateChildren(dt, commands);
 }
 
-void SceneNode::updateCurrent(sf::Time /*dt*/)
+void SceneNode::updateCurrent(sf::Time /*dt*/, CommandQueue& /*commands*/)
 {
 
 }
 
-void SceneNode::updateChildren(sf::Time dt)
+void SceneNode::updateChildren(sf::Time dt, CommandQueue& commands)
 {
     for(Ptr& child : mChildren)
     {
-        child->update(dt);
+        child->update(dt, commands);
     }
 }
 

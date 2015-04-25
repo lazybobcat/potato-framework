@@ -5,6 +5,7 @@
 
 #include <entities/scenenode.hpp>
 #include <entities/soundnode.hpp>
+#include <events/commandqueue.hpp>
 
 class CommandQueue;
 
@@ -22,7 +23,7 @@ public:
     void        playLocalSound(CommandQueue& commands, Sounds::ID sound);
 
 protected:
-    virtual void    updateCurrent(sf::Time);
+    virtual void    updateCurrent(sf::Time, CommandQueue);
 
 private:
     int         mHealthpoints;
