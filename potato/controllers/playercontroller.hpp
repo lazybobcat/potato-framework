@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYERCONTROLLER_H
+#define PLAYERCONTROLLER_H
 
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -42,4 +42,4 @@ private:
     std::map<Action, Command>				mActionBinding;
 };
 
-#endif // PLAYER_H
+#endif // PLAYERCONTROLLER_H
