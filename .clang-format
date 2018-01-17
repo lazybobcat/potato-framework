@@ -1,0 +1,37 @@
+BasedOnStyle: Mozilla
+
+# Ignore all comments because they aren't reflowed properly.
+CommentPragmas: "^"
+
+# Force pointers to the type for C++.
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+SortIncludes: true
+
+BraceWrapping: {
+    AfterClass: 'true',
+    AfterControlStatement: 'false',
+    AfterEnum : 'true',
+    AfterFunction : 'true',
+    AfterNamespace : 'true',
+    AfterStruct : 'true',
+    AfterUnion : 'true',
+    BeforeCatch : 'false',
+    BeforeElse : 'false',
+    IndentBraces : 'false'
+}
+
+AccessModifierOffset: -4
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+BinPackArguments: false
+BinPackParameters: false
+ReflowComments: false
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+NamespaceIndentation: None
+UseTab: Never
+IndentWidth: 4
+IndentCaseLabels: true
+ColumnLimit: 0

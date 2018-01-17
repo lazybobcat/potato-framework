@@ -11,9 +11,8 @@ It needs :
 ==
 
 *   A good understanding of C++
-*   A compiler that support C++11 (lambda, nullptr, shared ptr, threads)
-*   SFML 2.0
-*   Lua 5.2 lib
+*   A compiler that support C++14 (lambda, nullptr, shared ptr, threads)
+*   SFML 2.3+
 
 It includes :
 ==
@@ -25,7 +24,6 @@ It includes :
 *   Resources Handling
 *   Very Simple GUI (buttons and text zones)
 *   Music and Sound handling
-*   LUA scripting language
 *   (Very) Simple animations (spritesheets)
 *   Simple Particle system
 *   Simple QuadTree (non-object-number-adaptative)
@@ -33,7 +31,7 @@ It includes :
 It will include :
 ==
 
-*   Visual Effect (interface for shaders)
+*   More stuff
 
 Usage
 ==
