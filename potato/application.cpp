@@ -1,21 +1,21 @@
 #include <application.hpp>
-#include <utils.hpp>
 #include <states/titlestate.hpp>
+#include <utils.hpp>
 
-const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
+const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
-Application::Application(unsigned int width, unsigned int height, const std::string &title) :
-    mWindow(sf::VideoMode(width,height), title.c_str(), sf::Style::Close),
-    mTextures(),
-    mFonts(),
-    mSounds(),
-    mMusic(),
-    mScripts(),
-    mPlayer(),
-    mStateStack(State::Context(mWindow, mTextures, mFonts, mSounds, mMusic, mScripts, mPlayer)),
-    mStatisticsText(),
-    mStatisticsUpdateTime(),
-    mStatisticsNumFrames(0)
+Application::Application(unsigned int width, unsigned int height, const std::string& title)
+  : mWindow(sf::VideoMode(width, height), title.c_str(), sf::Style::Close)
+  , mTextures()
+  , mFonts()
+  , mSounds()
+  , mMusic()
+  , mScripts()
+  , mPlayer()
+  , mStateStack(State::Context(mWindow, mTextures, mFonts, mSounds, mMusic, mScripts, mPlayer))
+  , mStatisticsText()
+  , mStatisticsUpdateTime()
+  , mStatisticsNumFrames(0)
 {
     mWindow.setKeyRepeatEnabled(false);
 
@@ -25,25 +25,21 @@ Application::Application(unsigned int width, unsigned int height, const std::str
     mScripts.registerFile(Scripts::HelloWorld, "assets/scripts/helloworld.lua");
 
     mStatisticsText.setFont(mFonts.get(Fonts::Main));
-    mStatisticsText.setPosition(5.f,5.f);
+    mStatisticsText.setPosition(5.f, 5.f);
     mStatisticsText.setCharacterSize(10);
 
     registerStates();
     mStateStack.pushState(States::Title);
 }
 
-
-
 void Application::run()
 {
     sf::Clock clock;
-    sf::Time timeSinceLastUpdate = sf::Time::Zero;
-    while(mWindow.isOpen())
-    {
+    sf::Time  timeSinceLastUpdate = sf::Time::Zero;
+    while (mWindow.isOpen()) {
         sf::Time elapsedTime = clock.restart();
         timeSinceLastUpdate += elapsedTime;
-        while(timeSinceLastUpdate > TimePerFrame)
-        {
+        while (timeSinceLastUpdate > TimePerFrame) {
             timeSinceLastUpdate -= TimePerFrame;
 
             processEvents();
@@ -62,10 +58,9 @@ void Application::run()
 void Application::processEvents()
 {
     sf::Event event;
-    while(mWindow.pollEvent(event))
-    {
+    while (mWindow.pollEvent(event)) {
         mStateStack.handleEvent(event);
-        if(event.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed)
             mWindow.close();
     }
 }
@@ -100,12 +95,10 @@ void Application::updateStatistics(sf::Time elapsedTime)
     mStatisticsUpdateTime += elapsedTime;
     mStatisticsNumFrames += 1;
 
-    if(mStatisticsUpdateTime >= sf::seconds(1.f))
-    {
+    if (mStatisticsUpdateTime >= sf::seconds(1.f)) {
         mStatisticsText.setString(
-                    "Frames/sec = " + toString(mStatisticsNumFrames) + "\n" +
-                    "Time/update = " + toString(mStatisticsUpdateTime.asMicroseconds() / mStatisticsNumFrames) + "us"
-        );
+          "Frames/sec = " + toString(mStatisticsNumFrames) + "\n" +
+          "Time/update = " + toString(mStatisticsUpdateTime.asMicroseconds() / mStatisticsNumFrames) + "us");
 
         mStatisticsNumFrames = 0;
         mStatisticsUpdateTime -= sf::seconds(1.f);

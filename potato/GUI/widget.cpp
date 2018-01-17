@@ -3,8 +3,8 @@
 using namespace GUI;
 
 Widget::Widget()
-: mIsSelected(false)
-, mIsActive(false)
+  : mIsSelected(false)
+  , mIsActive(false)
 {
 }
 
@@ -41,4 +41,3 @@ void Widget::deactivate()
 {
     mIsActive = false;
 }
-

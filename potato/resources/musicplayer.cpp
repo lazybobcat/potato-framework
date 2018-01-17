@@ -1,9 +1,9 @@
 #include <resources/musicplayer.hpp>
 
-MusicPlayer::MusicPlayer() :
-    mMusic(),
-    mFilenames(),
-    mVolume(100.f)
+MusicPlayer::MusicPlayer()
+  : mMusic()
+  , mFilenames()
+  , mVolume(100.f)
 {
     // Fill mFilenames table here :
     // mFilenames[Musics::myMusic] = "my_file.ogg";

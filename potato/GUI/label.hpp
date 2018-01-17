@@ -4,12 +4,10 @@
 #include <string>
 
 #include <GUI/widget.hpp>
-#include <resources/resourceidentifiers.hpp>
 #include <resources/resourceholder.hpp>
+#include <resources/resourceidentifiers.hpp>
 
-
-namespace GUI
-{
+namespace GUI {
 
 class Label : public Widget
 {
@@ -19,18 +17,17 @@ public:
 public:
     Label(const std::string& text, const FontHolder& fonts);
 
-    virtual bool        isSelectable() const;
-    void                setText(const std::string& text);
+    virtual bool isSelectable() const;
+    void setText(const std::string& text);
 
-    virtual void        handleEvent(const sf::Event &event);
-
-private:
-    virtual void        draw(sf::RenderTarget &target, sf::RenderStates states) const;
+    virtual void handleEvent(const sf::Event& event);
 
 private:
-    sf::Text            mText;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+private:
+    sf::Text mText;
 };
-
 }
 
 #endif // LABEL_H

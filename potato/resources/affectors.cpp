@@ -1,2 +1,1 @@
 #include <resources/affectors.hpp>
-

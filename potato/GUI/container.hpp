@@ -5,8 +5,7 @@
 
 #include <GUI/widget.hpp>
 
-namespace GUI
-{
+namespace GUI {
 
 class Container : public Widget
 {
@@ -16,24 +15,23 @@ public:
 public:
     Container();
 
-    void            pack(Widget::Ptr widget);
+    void pack(Widget::Ptr widget);
 
-    virtual bool    isSelectable() const;
-    virtual void    handleEvent(const sf::Event &event);
-
-private:
-    virtual void    draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
-    bool            hasSelection() const;
-    void            select(std::size_t index);
-    void            selectNext();
-    void            selectPrevious();
+    virtual bool isSelectable() const;
+    virtual void handleEvent(const sf::Event& event);
 
 private:
-    std::vector<Widget::Ptr>    mChildren;
-    int                         mSelectedChild;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+    bool hasSelection() const;
+    void select(std::size_t index);
+    void selectNext();
+    void selectPrevious();
+
+private:
+    std::vector<Widget::Ptr> mChildren;
+    int                      mSelectedChild;
 };
-
 }
 
 #endif // CONTAINER_H

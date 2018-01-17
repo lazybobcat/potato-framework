@@ -2,8 +2,8 @@
 #define UTILS_H
 
 #include <SFML/Graphics.hpp>
-#include <sstream>
 #include <resources/animation.hpp>
+#include <sstream>
 
 // Since std::to_string doesn't work on MinGW we have to implement
 // our own to support all platforms.
@@ -16,8 +16,8 @@ void centerOrigin(sf::Text& text);
 void centerOrigin(Animation& animation);
 
 // Random number generation
-int     randomInt(int min, int max);
-float   randomFloat(float min, float max);
+int randomInt(int min, int max);
+float randomFloat(float min, float max);
 
 #include <utils.inl>
 

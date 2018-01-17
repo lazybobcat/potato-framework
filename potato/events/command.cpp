@@ -1,7 +1,7 @@
 #include <events/command.hpp>
 
-Command::Command() :
-    action(),
-    category(Category::None)
+Command::Command()
+  : action()
+  , category(Category::None)
 {
 }

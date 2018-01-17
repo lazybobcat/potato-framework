@@ -3,8 +3,8 @@
 
 #include <SFML/System.hpp>
 
-#include <functional>
 #include <cassert>
+#include <functional>
 
 #include <events/category.hpp>
 
@@ -14,15 +14,14 @@ struct Command
 {
     Command();
 
-    std::function<void(SceneNode&, sf::Time)>   action;
-    unsigned int                                category;
+    std::function<void(SceneNode&, sf::Time)> action;
+    unsigned int category;
 };
 
 template <typename GameObject, typename Function>
 std::function<void(SceneNode&, sf::Time)> derivedAction(Function fn)
 {
-    return [=](SceneNode& node, sf::Time dt)
-    {
+    return [=](SceneNode& node, sf::Time dt) {
         assert(dynamic_cast<GameObject*>(&node) != nullptr);
         fn(static_cast<GameObject&>(node), dt);
     };

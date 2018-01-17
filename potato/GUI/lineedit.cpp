@@ -4,19 +4,19 @@
 
 using namespace GUI;
 
-LineEdit::LineEdit(FontHolder& fonts, const std::string& text) :
-    Widget(),
-    mString(text),
-    mText(text, fonts.get(Fonts::Main)),
-    mShape(),
-    mCursorPosition(text.size())
+LineEdit::LineEdit(FontHolder& fonts, const std::string& text)
+  : Widget()
+  , mString(text)
+  , mText(text, fonts.get(Fonts::Main))
+  , mShape()
+  , mCursorPosition(text.size())
 {
     mText.setCharacterSize(22);
     mText.setColor(sf::Color::White);
     mShape.setSize(sf::Vector2f(350.f, 30.f));
     mShape.setFillColor(sf::Color(0, 0, 0, 130));
     mShape.setOutlineThickness(1);
-    mShape.setOutlineColor(sf::Color(255,255,255, 130));
+    mShape.setOutlineColor(sf::Color(255, 255, 255, 130));
 }
 
 bool LineEdit::isSelectable() const
@@ -26,10 +26,9 @@ bool LineEdit::isSelectable() const
 
 void LineEdit::activate()
 {
-    if(!isActive())
-    {
+    if (!isActive()) {
         const char* cursor = "|";
-        mCursorPosition = mString.size();
+        mCursorPosition    = mString.size();
         mString.insert(mCursorPosition, cursor);
         mText.setString(mString);
     }
@@ -39,25 +38,22 @@ void LineEdit::activate()
 
 void LineEdit::deactivate()
 {
-    if(isActive())
-    {
-        mString.erase(mCursorPosition, mCursorPosition+1);
+    if (isActive()) {
+        mString.erase(mCursorPosition, mCursorPosition + 1);
         mText.setString(mString);
     }
 
     Widget::deactivate();
 }
 
-void LineEdit::handleEvent(const sf::Event &event)
+void LineEdit::handleEvent(const sf::Event& event)
 {
-    if(!isActive())
+    if (!isActive())
         return;
 
-    switch(event.type)
-    {
+    switch (event.type) {
         case sf::Event::KeyPressed:
-            switch(event.key.code)
-            {
+            switch (event.key.code) {
                 case sf::Keyboard::Tab:
                     deactivate();
                     break;
@@ -76,15 +72,13 @@ void LineEdit::handleEvent(const sf::Event &event)
             break;
 
         case sf::Event::TextEntered:
-            if(event.text.unicode == '\e') {
+            if (event.text.unicode == '\e') {
                 deactivate();
-            }
-            else if(event.text.unicode == 13) {
+            } else if (event.text.unicode == 13) {
                 deactivate();
-            }
-            else if(event.text.unicode == '\t') {
+            } else if (event.text.unicode == '\t') {
                 deactivate();
-            } else if(event.text.unicode == '\b') {
+            } else if (event.text.unicode == '\b') {
                 backspace();
             } else {
                 insertCharacter((char)event.text.unicode);
@@ -94,10 +88,9 @@ void LineEdit::handleEvent(const sf::Event &event)
         default:
             break;
     }
-
 }
 
-void LineEdit::draw(sf::RenderTarget &target, sf::RenderStates states) const
+void LineEdit::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
 
@@ -107,10 +100,9 @@ void LineEdit::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 void LineEdit::moveCursorLeft()
 {
-    if(mCursorPosition > 0)
-    {
+    if (mCursorPosition > 0) {
         mString.erase(mCursorPosition, 1);
-        mCursorPosition = mCursorPosition-1;
+        mCursorPosition    = mCursorPosition - 1;
         const char* cursor = "|";
         mString.insert(mCursorPosition, cursor);
         mText.setString(mString);
@@ -119,8 +111,7 @@ void LineEdit::moveCursorLeft()
 
 void LineEdit::moveCursorRight()
 {
-    if((mCursorPosition+1) < mString.size())
-    {
+    if ((mCursorPosition + 1) < mString.size()) {
         mString.erase(mCursorPosition, 1);
         ++mCursorPosition;
         const char* cursor = "|";
@@ -139,11 +130,10 @@ void LineEdit::insertCharacter(char c)
 
 void LineEdit::backspace()
 {
-    if(mCursorPosition > 0)
-    {
+    if (mCursorPosition > 0) {
         mString.erase(mCursorPosition, 1);
-        mString.erase(mCursorPosition-1, 1);
-        mCursorPosition = mCursorPosition-1;
+        mString.erase(mCursorPosition - 1, 1);
+        mCursorPosition    = mCursorPosition - 1;
         const char* cursor = "|";
         mString.insert(mCursorPosition, cursor);
         mText.setString(mString);
@@ -152,17 +142,16 @@ void LineEdit::backspace()
 
 void LineEdit::adaptTextToBox()
 {
-    while(mText.getGlobalBounds().width > mShape.getSize().x)
-    {
-        mText.setCharacterSize(mText.getCharacterSize()-1);
+    while (mText.getGlobalBounds().width > mShape.getSize().x) {
+        mText.setCharacterSize(mText.getCharacterSize() - 1);
     }
 }
 
-void LineEdit::setText(const std::string &text)
+void LineEdit::setText(const std::string& text)
 {
-    mString = text;
+    mString         = text;
     mCursorPosition = mString.size();
-    if(isActive())
+    if (isActive())
         mString += '|';
     mText.setString(mString);
     adaptTextToBox();
@@ -183,7 +172,7 @@ void LineEdit::setSize(unsigned int x, unsigned int y)
     setSize(sf::Vector2i(x, y));
 }
 
-void LineEdit::setColor(const sf::Color &color)
+void LineEdit::setColor(const sf::Color& color)
 {
     mText.setColor(color);
 }
@@ -192,6 +181,3 @@ std::string LineEdit::getString() const
 {
     return mText.getString();
 }
-
-
-

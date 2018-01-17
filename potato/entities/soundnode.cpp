@@ -1,8 +1,8 @@
 #include <entities/soundnode.hpp>
 
-SoundNode::SoundNode(SoundPlayer &player) :
-    SceneNode(Category::SoundEffect),
-    mPlayer(player)
+SoundNode::SoundNode(SoundPlayer& player)
+  : SceneNode(Category::SoundEffect)
+  , mPlayer(player)
 {
 }
 

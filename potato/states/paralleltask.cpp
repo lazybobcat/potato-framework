@@ -1,11 +1,10 @@
 #include <states/paralleltask.hpp>
 
-ParallelTask::ParallelTask() :
-    mThread(&ParallelTask::runTask, this),
-    mFinished(false)
+ParallelTask::ParallelTask()
+  : mThread(&ParallelTask::runTask, this)
+  , mFinished(false)
 {
 }
-
 
 void ParallelTask::execute()
 {
@@ -32,11 +31,9 @@ void ParallelTask::runTask()
 {
     // DUMMY TASK HERE !!!
     bool ended = false;
-    while(!ended)
-    {
+    while (!ended) {
         sf::Lock lock(mMutex);
-        if(mElapsedTime.getElapsedTime().asSeconds() >= 3.f)
-        {
+        if (mElapsedTime.getElapsedTime().asSeconds() >= 3.f) {
             ended = true;
         }
     }

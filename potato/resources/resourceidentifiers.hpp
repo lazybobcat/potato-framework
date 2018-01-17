@@ -2,85 +2,69 @@
 #define RESOURCE_IDENTIFIERS_H
 
 // Forward declarations
-namespace sf
-{
-    class Texture;
-    class Font;
-    class Shader;
-    class Music;
-    class SoundBuffer;
+namespace sf {
+class Texture;
+class Font;
+class Shader;
+class Music;
+class SoundBuffer;
 }
 
 template <typename Resource, typename Identifier>
 class ResourceHolder;
 
-
-
 // Textures
-namespace Textures
+namespace Textures {
+enum ID
 {
-    enum ID
-    {
-        Particle
-    };
+    Particle
+};
 }
 
 typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
 
-
 // Fonts
-namespace Fonts
+namespace Fonts {
+enum ID
 {
-    enum ID
-    {
-        Main
-    };
+    Main
+};
 }
 
 typedef ResourceHolder<sf::Font, Fonts::ID> FontHolder;
 
-
 // Shaders
-namespace Shaders
+namespace Shaders {
+enum ID
 {
-    enum ID
-    {
 
-    };
+};
 }
 typedef ResourceHolder<sf::Shader, Shaders::ID> ShaderHolder;
 
-
 // Musics
-namespace Musics
+namespace Musics {
+enum ID
 {
-    enum ID
-    {
 
-    };
+};
 }
 
-
 // Sounds
-namespace Sounds
+namespace Sounds {
+enum ID
 {
-    enum ID
-    {
 
-    };
+};
 }
 typedef ResourceHolder<sf::SoundBuffer, Sounds::ID> SoundHolder;
 
-
 // Scripts
-namespace Scripts
+namespace Scripts {
+enum ID
 {
-    enum ID
-    {
-        HelloWorld
-    };
+    HelloWorld
+};
 }
-
-
 
 #endif // RESOURCE_IDENTIFIERS_H

@@ -1,12 +1,11 @@
 #include <entities/scenenode.hpp>
 
-SceneNode::SceneNode(Category::Type category) :
-    mChildren(),
-    mParent(nullptr),
-    mDefaultCategory(category)
+SceneNode::SceneNode(Category::Type category)
+  : mChildren()
+  , mParent(nullptr)
+  , mDefaultCategory(category)
 {
 }
-
 
 void SceneNode::attachChild(Ptr child)
 {
@@ -14,7 +13,7 @@ void SceneNode::attachChild(Ptr child)
     mChildren.push_back(std::move(child));
 }
 
-SceneNode::Ptr SceneNode::detachChild(const SceneNode &node)
+SceneNode::Ptr SceneNode::detachChild(const SceneNode& node)
 {
     auto found = std::find_if(mChildren.begin(), mChildren.end(), [&](Ptr& p) -> bool {
         return p.get() == &node;
@@ -22,7 +21,7 @@ SceneNode::Ptr SceneNode::detachChild(const SceneNode &node)
 
     assert(found != mChildren.end());
 
-    Ptr result = std::move(*found);
+    Ptr result      = std::move(*found);
     result->mParent = nullptr;
     mChildren.erase(found);
     return result;
@@ -36,13 +35,11 @@ void SceneNode::update(sf::Time dt, CommandQueue& commands)
 
 void SceneNode::updateCurrent(sf::Time /*dt*/, CommandQueue& /*commands*/)
 {
-
 }
 
 void SceneNode::updateChildren(sf::Time dt, CommandQueue& commands)
 {
-    for(Ptr& child : mChildren)
-    {
+    for (Ptr& child : mChildren) {
         child->update(dt, commands);
     }
 }
@@ -51,8 +48,7 @@ sf::Transform SceneNode::getWorldTransform() const
 {
     sf::Transform transform = sf::Transform::Identity;
 
-    for(const SceneNode* node = this; node != nullptr; node = node->mParent)
-    {
+    for (const SceneNode* node = this; node != nullptr; node = node->mParent) {
         transform = node->getTransform() * transform;
     }
 
@@ -69,22 +65,20 @@ sf::FloatRect SceneNode::getBoundingRect() const
     return sf::FloatRect();
 }
 
-void SceneNode::draw(sf::RenderTarget &target, sf::RenderStates states) const
+void SceneNode::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
     drawCurrent(target, states);
     drawChildren(target, states);
 }
 
-void SceneNode::drawCurrent(sf::RenderTarget &/*target*/, sf::RenderStates /*states*/) const
+void SceneNode::drawCurrent(sf::RenderTarget& /*target*/, sf::RenderStates /*states*/) const
 {
-
 }
 
-void SceneNode::drawChildren(sf::RenderTarget &target, sf::RenderStates states) const
+void SceneNode::drawChildren(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    for(const Ptr& child : mChildren)
-    {
+    for (const Ptr& child : mChildren) {
         child->draw(target, states);
     }
 }
@@ -99,15 +93,13 @@ bool SceneNode::isCollidable() const
     return false;
 }
 
-void SceneNode::onCommand(const Command &command, sf::Time dt)
+void SceneNode::onCommand(const Command& command, sf::Time dt)
 {
-    if(command.category & getCategory())
-    {
+    if (command.category & getCategory()) {
         command.action(*this, dt);
     }
 
-    for(Ptr& child : mChildren)
-    {
+    for (Ptr& child : mChildren) {
         child->onCommand(command, dt);
     }
 }

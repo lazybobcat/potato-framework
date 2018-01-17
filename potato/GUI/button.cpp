@@ -1,15 +1,16 @@
 #include <GUI/button.hpp>
-#include <utils.hpp>
 #include <SFML/Graphics.hpp>
+#include <utils.hpp>
 
 using namespace GUI;
 
-Button::Button(const FontHolder &fonts, const TextureHolder &/*textures*/) :
-    mCallback(),
-    //mButtonTexture(),
-    mSprite(),
-    mText("", fonts.get(Fonts::Main), 16),
-    mIsToggled(false)
+Button::Button(const FontHolder& fonts, const TextureHolder& /*textures*/)
+  : mCallback()
+  ,
+  //mButtonTexture(),
+  mSprite()
+  , mText("", fonts.get(Fonts::Main), 16)
+  , mIsToggled(false)
 {
     sf::IntRect textureRect(0, 0, 200, 50);
     //mSprite.setTexture(mButtonTexture);
@@ -24,7 +25,7 @@ void Button::setCallback(Callback callback)
     mCallback = std::move(callback);
 }
 
-void Button::setText(const std::string &text)
+void Button::setText(const std::string& text)
 {
     mText.setString(text);
     centerOrigin(mText);
@@ -57,13 +58,13 @@ void Button::deselect()
 void Button::activate()
 {
     Widget::activate();
-    if(mIsToggled)
+    if (mIsToggled)
         mSprite.setTextureRect(sf::IntRect(0, 100, 200, 50));
 
-    if(mCallback)
+    if (mCallback)
         mCallback();
 
-    if(!mIsToggled)
+    if (!mIsToggled)
         deactivate();
 }
 
@@ -71,18 +72,16 @@ void Button::deactivate()
 {
     Widget::deactivate();
 
-    if(mIsToggled)
-    {
-        if(isSelected())
+    if (mIsToggled) {
+        if (isSelected())
             mSprite.setTextureRect(sf::IntRect(0, 50, 200, 50));
         else
             mSprite.setTextureRect(sf::IntRect(0, 0, 200, 50));
     }
 }
 
-void Button::handleEvent(const sf::Event &)
+void Button::handleEvent(const sf::Event&)
 {
-
 }
 
 void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -91,6 +90,3 @@ void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(mSprite, states);
     target.draw(mText, states);
 }
-
-
-

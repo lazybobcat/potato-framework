@@ -1,16 +1,15 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include <vector>
-#include <string>
 #include <functional>
+#include <string>
+#include <vector>
 
 #include <GUI/widget.hpp>
 #include <resources/resourceholder.hpp>
 #include <resources/resourceidentifiers.hpp>
 
-namespace GUI
-{
+namespace GUI {
 
 class Button : public Widget
 {
@@ -21,30 +20,29 @@ public:
 public:
     Button(const FontHolder& fonts, const TextureHolder&);
 
-    void            setCallback(Callback callback);
-    void            setText(const std::string& text);
-    void            setToggle(bool flag);
+    void setCallback(Callback callback);
+    void setText(const std::string& text);
+    void setToggle(bool flag);
 
-    virtual bool    isSelectable() const;
-    virtual void    select();
-    virtual void    deselect();
+    virtual bool isSelectable() const;
+    virtual void select();
+    virtual void deselect();
 
-    virtual void    activate();
-    virtual void    deactivate();
+    virtual void activate();
+    virtual void deactivate();
 
-    virtual void    handleEvent(const sf::Event &event);
-
-private:
-    virtual void    draw(sf::RenderTarget &target, sf::RenderStates states) const;
+    virtual void handleEvent(const sf::Event& event);
 
 private:
-    Callback            mCallback;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+private:
+    Callback mCallback;
     //const sf::Texture&  mButtonTexture;
-    sf::Sprite          mSprite;
-    sf::Text            mText;
-    bool                mIsToggled;
+    sf::Sprite mSprite;
+    sf::Text   mText;
+    bool       mIsToggled;
 };
-
 }
 
 #endif // BUTTON_H

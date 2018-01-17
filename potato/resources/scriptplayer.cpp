@@ -1,12 +1,12 @@
-#include <resources/scriptplayer.hpp>
-#include <iostream>
-#include <fstream>
-#include <ios>
 #include <algorithm>
 #include <cassert>
+#include <fstream>
+#include <ios>
+#include <iostream>
+#include <resources/scriptplayer.hpp>
 
-ScriptPlayer::ScriptPlayer() :
-    mLuaState(nullptr)
+ScriptPlayer::ScriptPlayer()
+  : mLuaState(nullptr)
 {
     // Creation of lua state
     mLuaState = luaL_newstate();
@@ -18,18 +18,16 @@ ScriptPlayer::~ScriptPlayer()
     lua_close(mLuaState);
 }
 
-
 bool ScriptPlayer::play(Scripts::ID script)
 {
-    if(mScripts.find(script) == mScripts.end())
-    {
+    if (mScripts.find(script) == mScripts.end()) {
         std::cerr << "[ScriptPlayer] Script #" << script << " not found !" << std::endl;
         return false;
     }
 
     try {
         luaL_dostring(mLuaState, mScripts[script].c_str());
-    } catch(...) {
+    } catch (...) {
         std::cerr << "[ScriptPlayer] Error while playing Script #" << script << " !" << std::endl;
         return false;
     }
@@ -37,18 +35,16 @@ bool ScriptPlayer::play(Scripts::ID script)
     return true;
 }
 
-void ScriptPlayer::registerFile(Scripts::ID script, const std::string &filename)
+void ScriptPlayer::registerFile(Scripts::ID script, const std::string& filename)
 {
     std::ifstream file(filename, std::ios::in);
-    std::string fullscript, line;
+    std::string   fullscript, line;
 
-    if(!file.is_open())
-    {
+    if (!file.is_open()) {
         throw std::runtime_error("Unable to open script " + filename);
     }
 
-    while(std::getline(file, line))
-    {
+    while (std::getline(file, line)) {
         fullscript.append(line);
         fullscript.append("\n");
     }
@@ -58,9 +54,7 @@ void ScriptPlayer::registerFile(Scripts::ID script, const std::string &filename)
     registerScript(script, fullscript);
 }
 
-
-void ScriptPlayer::registerScript(Scripts::ID script, const std::string &content)
+void ScriptPlayer::registerScript(Scripts::ID script, const std::string& content)
 {
     mScripts[script] = content;
 }
-

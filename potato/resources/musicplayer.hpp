@@ -15,15 +15,15 @@ class MusicPlayer : private sf::NonCopyable
 public:
     MusicPlayer();
 
-    void        play(Musics::ID song);
-    void        stop();
-    void        pause(bool flag = true);
-    void        setVolume(float volume);
+    void play(Musics::ID song);
+    void stop();
+    void pause(bool flag = true);
+    void setVolume(float volume);
 
 private:
-    sf::Music   mMusic;
-    std::map<Musics::ID,std::string>    mFilenames;
-    float       mVolume;
+    sf::Music mMusic;
+    std::map<Musics::ID, std::string> mFilenames;
+    float mVolume;
 };
 
 #endif // MUSICPLAYER_H

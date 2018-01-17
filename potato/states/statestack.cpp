@@ -1,14 +1,13 @@
-#include <states/statestack.hpp>
 #include <cassert>
+#include <states/statestack.hpp>
 
-StateStack::StateStack(State::Context context) :
-    mStack(),
-    mPendingList(),
-    mContext(context),
-    mFactories()
+StateStack::StateStack(State::Context context)
+  : mStack()
+  , mPendingList()
+  , mContext(context)
+  , mFactories()
 {
 }
-
 
 State::Ptr StateStack::createState(States::ID id)
 {
@@ -21,8 +20,7 @@ State::Ptr StateStack::createState(States::ID id)
 void StateStack::update(sf::Time dt)
 {
     // Iterate from top to bottom, stop as soon as update() returns false
-    for (auto it = mStack.rbegin(); it != mStack.rend(); ++it)
-    {
+    for (auto it = mStack.rbegin(); it != mStack.rend(); ++it) {
         if (!(*it)->update(dt))
             break;
     }
@@ -33,14 +31,13 @@ void StateStack::update(sf::Time dt)
 void StateStack::draw()
 {
     // Draw all active states from bottom to top
-    for(State::Ptr& state : mStack)
+    for (State::Ptr& state : mStack)
         state->draw();
 }
 
-void StateStack::handleEvent(const sf::Event &event)
+void StateStack::handleEvent(const sf::Event& event)
 {
-    for (auto it = mStack.rbegin(); it != mStack.rend(); ++it)
-    {
+    for (auto it = mStack.rbegin(); it != mStack.rend(); ++it) {
         if (!(*it)->handleEvent(event))
             break;
     }
@@ -70,13 +67,10 @@ bool StateStack::isEmpty() const
 
 void StateStack::applyPendingChanges()
 {
-    for(PendingChange change : mPendingList)
-    {
-        switch(change.action)
-        {
+    for (PendingChange change : mPendingList) {
+        switch (change.action) {
             case Push:
-                if(!mStack.empty())
-                {
+                if (!mStack.empty()) {
                     mStack.back()->onPause();
                 }
                 mStack.push_back(createState(change.stateID));
@@ -86,30 +80,24 @@ void StateStack::applyPendingChanges()
             case Pop:
                 mStack.back()->onDestroy();
                 mStack.pop_back();
-                if(!mStack.empty())
-                {
+                if (!mStack.empty()) {
                     mStack.back()->onResume();
                 }
                 break;
 
             case Clear:
-                for(State::Ptr& state : mStack)
+                for (State::Ptr& state : mStack)
                     state->onDestroy();
                 mStack.clear();
-            break;
+                break;
         }
     }
 
     mPendingList.clear();
 }
 
-
-
-StateStack::PendingChange::PendingChange(Action action, States::ID stateID) :
-    action(action),
-    stateID(stateID)
+StateStack::PendingChange::PendingChange(Action action, States::ID stateID)
+  : action(action)
+  , stateID(stateID)
 {
 }
-
-
-

@@ -4,19 +4,18 @@
 PlayerController::PlayerController()
 {
     // Default keybindings
-    mKeyBinding[sf::Keyboard::Left] = MoveLeft;
+    mKeyBinding[sf::Keyboard::Left]  = MoveLeft;
     mKeyBinding[sf::Keyboard::Right] = MoveRight;
-    mKeyBinding[sf::Keyboard::Up] = MoveUp;
-    mKeyBinding[sf::Keyboard::Down] = MoveDown;
+    mKeyBinding[sf::Keyboard::Up]    = MoveUp;
+    mKeyBinding[sf::Keyboard::Down]  = MoveDown;
 
     // initialize actions
     initializeActions();
 }
 
-void PlayerController::handleEvent(const sf::Event &event, CommandQueue &commands)
+void PlayerController::handleEvent(const sf::Event& event, CommandQueue& commands)
 {
-    if (event.type == sf::Event::KeyPressed)
-    {
+    if (event.type == sf::Event::KeyPressed) {
         // Check if pressed key appears in key binding, trigger command if so
         auto found = mKeyBinding.find(event.key.code);
         if (found != mKeyBinding.end() && !isRealtimeAction(found->second))
@@ -24,12 +23,10 @@ void PlayerController::handleEvent(const sf::Event &event, CommandQueue &command
     }
 }
 
-void PlayerController::handleRealtimeInput(CommandQueue &commands)
+void PlayerController::handleRealtimeInput(CommandQueue& commands)
 {
-    for(auto pair : mKeyBinding)
-    {
-        if(sf::Keyboard::isKeyPressed(pair.first) && isRealtimeAction(pair.second))
-        {
+    for (auto pair : mKeyBinding) {
+        if (sf::Keyboard::isKeyPressed(pair.first) && isRealtimeAction(pair.second)) {
             commands.push(mActionBinding[pair.second]);
         }
     }
@@ -38,8 +35,7 @@ void PlayerController::handleRealtimeInput(CommandQueue &commands)
 void PlayerController::assignKey(Action action, sf::Keyboard::Key key)
 {
     // Remove all keys that already map to action
-    for(auto itr = mKeyBinding.begin(); itr != mKeyBinding.end(); )
-    {
+    for (auto itr = mKeyBinding.begin(); itr != mKeyBinding.end();) {
         if (itr->second == action)
             mKeyBinding.erase(itr++);
         else
@@ -52,8 +48,7 @@ void PlayerController::assignKey(Action action, sf::Keyboard::Key key)
 
 sf::Keyboard::Key PlayerController::getAssignedKey(Action action) const
 {
-    for(auto pair : mKeyBinding)
-    {
+    for (auto pair : mKeyBinding) {
         if (pair.second == action)
             return pair.first;
     }
@@ -71,8 +66,7 @@ void PlayerController::initializeActions()
 
 bool PlayerController::isRealtimeAction(Action action)
 {
-    switch (action)
-    {
+    switch (action) {
         case MoveLeft:
         case MoveRight:
         case MoveDown:
@@ -83,4 +77,3 @@ bool PlayerController::isRealtimeAction(Action action)
             return false;
     }
 }
-

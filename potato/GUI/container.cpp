@@ -2,19 +2,18 @@
 
 using namespace GUI;
 
-Container::Container() :
-    Widget(),
-    mSelectedChild(-1)
+Container::Container()
+  : Widget()
+  , mSelectedChild(-1)
 {
 }
-
 
 void Container::pack(Widget::Ptr widget)
 {
     mChildren.push_back(widget);
 
-    if(!hasSelection() && widget->isSelectable())
-        select(mChildren.size() -1);
+    if (!hasSelection() && widget->isSelectable())
+        select(mChildren.size() - 1);
 }
 
 bool Container::isSelectable() const
@@ -22,16 +21,12 @@ bool Container::isSelectable() const
     return false;
 }
 
-void Container::handleEvent(const sf::Event &event)
+void Container::handleEvent(const sf::Event& event)
 {
-    if(hasSelection() && mChildren[mSelectedChild]->isActive())
-    {
+    if (hasSelection() && mChildren[mSelectedChild]->isActive()) {
         mChildren[mSelectedChild]->handleEvent(event);
-    }
-    else if(event.type == sf::Event::KeyReleased)
-    {
-        switch(event.key.code)
-        {
+    } else if (event.type == sf::Event::KeyReleased) {
+        switch (event.key.code) {
             case sf::Keyboard::Z:
             case sf::Keyboard::W:
             case sf::Keyboard::Up:
@@ -45,21 +40,21 @@ void Container::handleEvent(const sf::Event &event)
 
             case sf::Keyboard::Return:
             case sf::Keyboard::Space:
-                if(hasSelection())
+                if (hasSelection())
                     mChildren[mSelectedChild]->activate();
                 break;
 
-            default:break;
+            default:
+                break;
         }
     }
 }
 
-void Container::draw(sf::RenderTarget &target, sf::RenderStates states) const
+void Container::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
 
-    for(const Widget::Ptr& widget : mChildren)
-    {
+    for (const Widget::Ptr& widget : mChildren) {
         target.draw(*widget, states);
     }
 }
@@ -71,9 +66,8 @@ bool Container::hasSelection() const
 
 void Container::select(std::size_t index)
 {
-    if(mChildren[index]->isSelectable())
-    {
-        if(hasSelection())
+    if (mChildren[index]->isSelectable()) {
+        if (hasSelection())
             mChildren[mSelectedChild]->deselect();
 
         mChildren[index]->select();
@@ -83,20 +77,20 @@ void Container::select(std::size_t index)
 
 void Container::selectNext()
 {
-    if(!hasSelection())
+    if (!hasSelection())
         return;
 
     int next = mSelectedChild;
     do
         next = (next + 1) % mChildren.size();
-    while(!mChildren[next]->isSelectable());
+    while (!mChildren[next]->isSelectable());
 
     select(next);
 }
 
 void Container::selectPrevious()
 {
-    if(!hasSelection())
+    if (!hasSelection())
         return;
 
     int prev = mSelectedChild;
@@ -106,54 +100,3 @@ void Container::selectPrevious()
 
     select(prev);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

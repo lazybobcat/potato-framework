@@ -1,13 +1,13 @@
 #include <entities/textnode.hpp>
 #include <utils.hpp>
 
-TextNode::TextNode(const std::string& text, const FontHolder& fonts) :
-    mText(text, fonts.get(Fonts::Main), 20)
+TextNode::TextNode(const std::string& text, const FontHolder& fonts)
+  : mText(text, fonts.get(Fonts::Main), 20)
 {
     centerOrigin(mText);
 }
 
-void TextNode::setText(const std::string &text)
+void TextNode::setText(const std::string& text)
 {
     mText.setString(text);
     centerOrigin(mText);

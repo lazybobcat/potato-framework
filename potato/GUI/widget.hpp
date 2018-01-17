@@ -6,8 +6,7 @@
 
 #include <memory>
 
-namespace GUI
-{
+namespace GUI {
 
 class Widget : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 {
@@ -18,22 +17,21 @@ public:
     Widget();
     virtual ~Widget();
 
-    virtual bool    isSelectable() const = 0;
-    bool            isSelected() const;
-    virtual void    select();
-    virtual void    deselect();
+    virtual bool isSelectable() const = 0;
+    bool         isSelected() const;
+    virtual void select();
+    virtual void deselect();
 
-    virtual bool    isActive() const;
-    virtual void    activate();
-    virtual void    deactivate();
+    virtual bool isActive() const;
+    virtual void activate();
+    virtual void deactivate();
 
-    virtual void    handleEvent(const sf::Event& event) = 0;
+    virtual void handleEvent(const sf::Event& event) = 0;
 
 protected:
-    bool            mIsSelected;
-    bool            mIsActive;
+    bool mIsSelected;
+    bool mIsActive;
 };
-
 }
 
 #endif // WIDGET_H

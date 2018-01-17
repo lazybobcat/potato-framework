@@ -11,8 +11,7 @@ class Particle;
 template <typename Affector>
 std::function<void(Particle&, sf::Time)> derivedAffector(Affector& affector)
 {
-    return [&affector] (Particle& particle, sf::Time dt)
-    {
+    return [&affector](Particle& particle, sf::Time dt) {
         return affector(particle, dt);
     };
 }

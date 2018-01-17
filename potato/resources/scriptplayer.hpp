@@ -17,13 +17,12 @@ public:
 
     bool play(Scripts::ID script);
 
-    void        registerFile(Scripts::ID script, const std::string& filename);
-    void        registerScript(Scripts::ID script, const std::string& content);
+    void registerFile(Scripts::ID script, const std::string& filename);
+    void registerScript(Scripts::ID script, const std::string& content);
 
 private:
-    lua_State*  mLuaState;
+    lua_State* mLuaState;
     std::map<Scripts::ID, std::string> mScripts;
-
 };
 
 #endif // SCRIPTPLAYER_H

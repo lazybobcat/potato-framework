@@ -1,23 +1,22 @@
 #include <world.hpp>
 
-World::World(sf::RenderWindow& window, TextureHolder &textures, FontHolder &fonts, MusicPlayer &music, SoundPlayer &sounds, ScriptPlayer &scripts, PlayerController &player) :
-    mWindow(window),
-    mWorldView(window.getDefaultView()),
-    mTextures(textures),
-    mFonts(fonts),
-    mMusic(music),
-    mSounds(sounds),
-    mScripts(scripts),
-    mPlayer(player),
-    mSceneGraph(),
-    mSceneLayers()
+World::World(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, MusicPlayer& music, SoundPlayer& sounds, ScriptPlayer& scripts, PlayerController& player)
+  : mWindow(window)
+  , mWorldView(window.getDefaultView())
+  , mTextures(textures)
+  , mFonts(fonts)
+  , mMusic(music)
+  , mSounds(sounds)
+  , mScripts(scripts)
+  , mPlayer(player)
+  , mSceneGraph()
+  , mSceneLayers()
 {
     loadTextures();
     buildScene();
 
     // Other things here, like setting the view center on the player, scores, etc...
 }
-
 
 void World::loadTextures()
 {
@@ -27,8 +26,7 @@ void World::loadTextures()
 void World::buildScene()
 {
     // Initialize layers
-    for(std::size_t i = 0; i < LayerCount; ++i)
-    {
+    for (std::size_t i = 0; i < LayerCount; ++i) {
         SceneNode::Ptr layer(new SceneNode());
         mSceneLayers[i] = layer.get();
 
@@ -47,8 +45,7 @@ void World::update(sf::Time dt)
     // Game logic here
 
     // Forward commands to scene
-    while(!mCommandQueue.isEmpty())
-    {
+    while (!mCommandQueue.isEmpty()) {
         mSceneGraph.onCommand(mCommandQueue.pop(), dt);
     }
 

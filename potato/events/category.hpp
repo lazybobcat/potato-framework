@@ -1,18 +1,17 @@
 #ifndef CATEGORY_H
 #define CATEGORY_H
 
-namespace Category
+namespace Category {
+enum Type
 {
-    enum Type
-    {
-        None            = 0,
-        SoundEffect     = 1 << 0,
-        ParticleSystem  = 1 << 1
-        //Player  = 1 << 2,
-        // ...
-        //MixedCategory        = Category1 | Category2,
+    None           = 0,
+    SoundEffect    = 1 << 0,
+    ParticleSystem = 1 << 1
+    //Player  = 1 << 2,
+    // ...
+    //MixedCategory        = Category1 | Category2,
 
-    };
+};
 }
 
 #endif // CATEGORY_H

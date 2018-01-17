@@ -1,6 +1,6 @@
 #include <events/commandqueue.hpp>
 
-void CommandQueue::push(const Command &command)
+void CommandQueue::push(const Command& command)
 {
     mQueue.push(command);
 }

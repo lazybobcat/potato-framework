@@ -2,19 +2,18 @@
 
 #include <cmath>
 
-namespace
-{
-    const float ListenerZ = 300.f;
-    const float Attenuation = 8.f;
-    const float MinDistance2D = 200.f;
-    const float MinDistance3D = std::sqrt(MinDistance2D*MinDistance2D + ListenerZ*ListenerZ);
+namespace {
+const float ListenerZ     = 300.f;
+const float Attenuation   = 8.f;
+const float MinDistance2D = 200.f;
+const float MinDistance3D = std::sqrt(MinDistance2D * MinDistance2D + ListenerZ * ListenerZ);
 }
 
 /////////////////////////////////////////
 
-SoundPlayer::SoundPlayer() :
-    mSoundBuffers(),
-    mSounds()
+SoundPlayer::SoundPlayer()
+  : mSoundBuffers()
+  , mSounds()
 {
     // Fill buffers with sounds
     //mSoundBuffers.load(Sounds::MySound, "my_sound_file.ogg");
@@ -39,10 +38,9 @@ void SoundPlayer::play(Sounds::ID effect, sf::Vector2f position)
     sound.play();
 }
 
-
 void SoundPlayer::removeStoppedSounds()
 {
-    mSounds.remove_if([] (const sf::Sound& s) {
+    mSounds.remove_if([](const sf::Sound& s) {
         return s.getStatus() == sf::Sound::Stopped;
     });
 }

@@ -1,21 +1,21 @@
+#include <controllers/playercontroller.hpp>
 #include <states/state.hpp>
 #include <states/statestack.hpp>
-#include <controllers/playercontroller.hpp>
 
-State::Context::Context(sf::RenderWindow &window, TextureHolder &textures, FontHolder &fonts, SoundPlayer& sounds, MusicPlayer& music, ScriptPlayer& scripts, PlayerController &player) :
-    window(&window),
-    textures(&textures),
-    fonts(&fonts),
-    sounds(&sounds),
-    music(&music),
-    scripts(&scripts),
-    player(&player)
+State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, SoundPlayer& sounds, MusicPlayer& music, ScriptPlayer& scripts, PlayerController& player)
+  : window(&window)
+  , textures(&textures)
+  , fonts(&fonts)
+  , sounds(&sounds)
+  , music(&music)
+  , scripts(&scripts)
+  , player(&player)
 {
 }
 
-State::State(StateStack &stack, Context context) :
-    mStack(&stack),
-    mContext(context)
+State::State(StateStack& stack, Context context)
+  : mStack(&stack)
+  , mContext(context)
 {
 }
 

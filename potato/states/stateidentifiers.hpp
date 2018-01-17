@@ -1,19 +1,18 @@
 #ifndef STATEIDENTIFIERS_H
 #define STATEIDENTIFIERS_H
 
-namespace States
+namespace States {
+enum ID
 {
-    enum ID
-    {
-        None,
-        Title,
-        Menu,
-        Settings,
-        Game,
-        Loading,
-        GameOver,
-        Pause
-    };
+    None,
+    Title,
+    Menu,
+    Settings,
+    Game,
+    Loading,
+    GameOver,
+    Pause
+};
 }
 
 #endif // STATEIDENTIFIERS_H
