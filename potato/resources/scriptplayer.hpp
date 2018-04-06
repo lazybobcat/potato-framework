@@ -19,7 +19,6 @@
 #include <map>
 #include <string>
 
-#include <lua.hpp>
 #include <resources/resourceidentifiers.hpp>
 
 class ScriptPlayer : private sf::NonCopyable
@@ -34,7 +33,6 @@ public:
     void registerScript(Scripts::ID script, const std::string& content);
 
 private:
-    lua_State* mLuaState;
     std::map<Scripts::ID, std::string> mScripts;
 };
 

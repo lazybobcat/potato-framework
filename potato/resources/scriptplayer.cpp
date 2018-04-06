@@ -19,16 +19,11 @@
 #include <resources/scriptplayer.hpp>
 
 ScriptPlayer::ScriptPlayer()
-  : mLuaState(nullptr)
 {
-    // Creation of lua state
-    mLuaState = luaL_newstate();
-    luaL_openlibs(mLuaState);
 }
 
 ScriptPlayer::~ScriptPlayer()
 {
-    lua_close(mLuaState);
 }
 
 bool ScriptPlayer::play(Scripts::ID script)
@@ -38,12 +33,7 @@ bool ScriptPlayer::play(Scripts::ID script)
         return false;
     }
 
-    try {
-        luaL_dostring(mLuaState, mScripts[script].c_str());
-    } catch (...) {
-        std::cerr << "[ScriptPlayer] Error while playing Script #" << script << " !" << std::endl;
-        return false;
-    }
+    // ...
 
     return true;
 }
