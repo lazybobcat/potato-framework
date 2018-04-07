@@ -1,0 +1,19 @@
+dist: trusty
+sudo: required
+language: cpp
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-7
+      - g++-7
+before_install:
+  - sudo apt-get install libsfml-dev
+script:
+  - gcc -v
+  - export CC=gcc-7
+  - export CXX=g++-7
+  - cmake --target unittests .
+  - make -j 4
+  - ./unittests
