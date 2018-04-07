@@ -4,7 +4,7 @@ project(potato-framework)
 set(CMAKE_BUILD_TYPE Debug)
 
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/potato)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/potato ${CMAKE_CURRENT_SOURCE_DIR}/extlibs)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -fPIC")
 
@@ -72,10 +72,16 @@ set(SOURCE_FILES potato/application.cpp
         potato/utils.hpp
         potato/utils.inl
         potato/world.cpp
-        potato/world.hpp)
+        potato/world.hpp
+        potato/utils/nlohmann/json.hpp
+        potato/utils/json.hpp)
+set(TEST_SOURCE_FILES tests/tests.cpp tests/utils/json.cpp)
 
 # Building libpotato-framework
 add_library(potato-framework SHARED ${SOURCE_FILES})
 install(TARGETS potato-framework DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/build)
 target_link_libraries(potato-framework dl pthread)
 
+# Building tests
+add_executable(unittests ${SOURCE_FILES} ${TEST_SOURCE_FILES})
+target_link_libraries(unittests dl pthread sfml-system sfml-window sfml-graphics sfml-audio sfml-network)

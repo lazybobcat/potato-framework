@@ -1,0 +1,8 @@
+[submodule "bandit"]
+	path = bandit
+	url = https://github.com/banditcpp/bandit
+	branch = headers-only
+[submodule "extlibs/bandit"]
+	path = extlibs/bandit
+	url = https://github.com/banditcpp/bandit
+	branch = headers-only
